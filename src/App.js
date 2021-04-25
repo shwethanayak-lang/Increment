@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [num, setNum] = useState(0);
+
+  const increment = () => {
+    console.log(num);
+    if (num >= 0) {
+      console.log(num + 1);
+      setNum(num + 1);
+    } else {
+      setNum(0);
+    }
+  };
+
+  const decrement = () => {
+    console.log(num);
+    if (num > 0) {
+      console.log(num - 1);
+      setNum(num - 1);
+    } else {
+      setNum(0);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="block">
+      <p className="show">{num}</p>
+      <button className="btn1" onClick={increment}>
+        +
+      </button>
+      <button className="btn2" onClick={decrement}>
+        -
+      </button>
     </div>
   );
 }
